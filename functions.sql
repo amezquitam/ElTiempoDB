@@ -57,13 +57,13 @@ $$ LANGUAGE plpgsql;
 
 
 CREATE OR REPLACE FUNCTION CREAR_ARTICULO (
+  idAutor integer,
   titulo VARCHAR,
   fechaPublicacion date,
-  idAutor integer,
   cuerpo VARCHAR(4096),
   subtitulo VARCHAR(256),
   portada VARCHAR,
-  exclusividad VARCHAR
+  premium BIT
 ) RETURNS INTEGER AS $$
 DECLARE id INTEGER;
 BEGIN
@@ -73,8 +73,7 @@ BEGIN
   RETURNING idContenido INTO id;
 
   INSERT INTO Articulos
-  VALUES (id, idAutor, cuerpo, subtitulo, portada, exclusividad)
-  RETURNING idArticulo INTO id;
+  VALUES (id, idAutor, cuerpo, subtitulo, portada, premium);
 
   return id;
 END;
