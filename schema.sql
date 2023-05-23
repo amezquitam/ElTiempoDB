@@ -45,7 +45,7 @@ AS $$ BEGIN
     cuerpo VARCHAR(4096) NOT NULL,
     subtitulo VARCHAR(256) NOT NULL,
     portada VARCHAR,
-    exclusividad VARCHAR,
+    premium BIT,
     PRIMARY KEY (idArticulo),
     FOREIGN KEY (idArticulo) REFERENCES Contenidos(idContenido),
     FOREIGN KEY (idAutor) REFERENCES Escritores(idAutor)
@@ -88,7 +88,6 @@ AS $$ BEGIN
   (
     idEtiqueta serial,
     nombre VARCHAR NOT NULL,
-    descripcion VARCHAR,
     PRIMARY KEY (idEtiqueta)
   );
 
