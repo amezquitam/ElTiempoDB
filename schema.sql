@@ -179,15 +179,15 @@ AS $$ BEGIN
     FOREIGN KEY (idBlog) REFERENCES Blogs(idBlog)
   );
 
-  CREATE TABLE IF NOT EXISTS Carituristas
+  CREATE TABLE IF NOT EXISTS Caricaturistas
   (
-    idCariturista serial,
+    idCaricaturista serial,
     nombre VARCHAR NOT NULL,
     descripcion VARCHAR,
     portada VARCHAR NOT NULL,
     pseudonimo VARCHAR,
     idRedSocial integer NOT NULL,
-    PRIMARY KEY (idCariturista),
+    PRIMARY KEY (idCaricaturista),
     FOREIGN KEY (idRedSocial) REFERENCES RedesSociales(idRedSocial)
   );
 
@@ -195,9 +195,9 @@ AS $$ BEGIN
   (
     idContenido integer,
     imagen VARCHAR NOT NULL,
-    idCariturista integer NOT NULL,
+    idCaricaturista integer NOT NULL,
     PRIMARY KEY (idContenido),
-    FOREIGN KEY (idCariturista) REFERENCES Carituristas(idCariturista)
+    FOREIGN KEY (idCaricaturista) REFERENCES Caricaturistas(idCaricaturista)
   );
 
   CREATE TABLE IF NOT EXISTS ActualizacionesDeBlogs
@@ -394,7 +394,7 @@ AS $$ BEGIN
   DROP TABLE IF EXISTS Galerias;
   DROP TABLE IF EXISTS ActualizacionesDeBlogs;
   DROP TABLE IF EXISTS Caricaturas;
-  DROP TABLE IF EXISTS Carituristas;
+  DROP TABLE IF EXISTS Caricaturistas;
   DROP TABLE IF EXISTS BlogDeUsuarios;
   DROP TABLE IF EXISTS Blogs;
   DROP TABLE IF EXISTS Blogueros;
