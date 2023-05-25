@@ -63,13 +63,15 @@ CREATE OR REPLACE FUNCTION CREAR_ARTICULO (
   cuerpo VARCHAR(4096),
   subtitulo VARCHAR(256),
   portada VARCHAR,
-  premium BIT
+  premium BIT,
+  visualizaciones integer
+  
 ) RETURNS INTEGER AS $$
 DECLARE id INTEGER;
 BEGIN
 
-  INSERT INTO Contenidos (titulo, fechaPublicacion)
-  VALUES (titulo, fechaPublicacion)
+  INSERT INTO Contenidos (titulo, fechaPublicacion, visualizaciones)
+  VALUES (titulo, fechaPublicacion, visualizaciones)
   RETURNING idContenido INTO id;
 
   INSERT INTO Articulos

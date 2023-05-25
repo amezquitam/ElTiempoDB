@@ -35,6 +35,7 @@ AS $$ BEGIN
     idContenido serial,
     titulo VARCHAR NOT NULL,
     fechaPublicacion date NOT NULL,
+    visualizaciones integer DEFAULT 0,
     PRIMARY KEY (idContenido)
   );
 
