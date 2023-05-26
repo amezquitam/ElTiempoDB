@@ -2,8 +2,8 @@
 	1. ¿Cuál es el número total de usuarios registrados?
 */
 
-SELECT COUNT(*) AS totalUsuarios
-FROM Usuarios;
+SELECT totalUsuarios
+FROM TotalUsuarios;
 
 /*
 	2. ¿Cuál es el nombre completo del autor con ID 5?
@@ -25,8 +25,8 @@ WHERE idArticulo = 10;
 	4. ¿Cuántas suscripciones existen actualmente?
 */
 
-SELECT COUNT(*) AS totalSuscripciones
-FROM Suscripciones;
+SELECT totalSuscripciones
+FROM TotalSuscripciones;
 
 /*
 	5. ¿Cuál es la descripción del bloguero con ID 3?
@@ -40,11 +40,8 @@ WHERE idBloguero = 3;
 	6. ¿Cuál es el nombre completo de los autores que han escrito al menos un artículo premium?
 */
 
-SELECT DISTINCT A.nombres || ' ' || A.apellidos AS nombreCompleto
-FROM Autores A
-INNER JOIN Escritores E ON A.idAutor = E.idAutor
-INNER JOIN Articulos AR ON E.idAutor = AR.idAutor
-WHERE AR.premium = '1';
+SELECT nombreCompleto
+from AutoresPremium;
 
 /*
 	7. ¿Cuál es el número total de comentarios realizados en los

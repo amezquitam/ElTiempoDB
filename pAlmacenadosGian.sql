@@ -57,3 +57,23 @@ BEGIN
     WHERE SA.nombre = nombre_subseccion;
 END;
 $$ LANGUAGE plpgsql;
+
+/* Vistas creadas por Gianmarco Gambin Igirio */
+
+/* Para consulta 1 */
+CREATE VIEW TotalUsuarios AS
+SELECT COUNT(*) AS totalUsuarios
+FROM Usuarios;
+
+/* Para consulta 4 */
+CREATE VIEW TotalSuscripciones AS
+SELECT COUNT(*) AS totalSuscripciones
+FROM Suscripciones;
+
+/* Para consulta 6 */
+CREATE VIEW AutoresPremium AS
+SELECT DISTINCT A.nombres || ' ' || A.apellidos AS nombreCompleto
+FROM Autores A
+INNER JOIN Escritores E ON A.idAutor = E.idAutor
+INNER JOIN Articulos AR ON E.idAutor = AR.idAutor
+WHERE AR.premium = '1';
