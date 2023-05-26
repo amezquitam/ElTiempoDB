@@ -50,7 +50,7 @@ BEGIN
   PERFORM CREAR_USUARIO('Jack', 'Lopez', 'jack.lopez@example.com', 'password33', '7878787878', 'jacklopez');
   PERFORM CREAR_USUARIO('Penelope', 'Gonzalez', 'penelope.gonzalez@example.com', 'password34', '9090909090', 'penelopegonzalez');
 
-  RAISE NOTICE 'Se han agregado todos los usuarios existosamente';
+  RAISE NOTICE 'Se han agregado todos los usuarios correctamente';
 
 
   PERFORM CREAR_ESCRITOR('Gabriel', 'García Márquez', 'https://ruta-imagen1', 'Ganador del Premio Nobel de Literatura, autor de Cien años de soledad.');
@@ -87,7 +87,7 @@ BEGIN
   PERFORM CREAR_REDACCION('Mark', 'Twain', 'https://ruta-imagen49', 'Escritor estadounidense conocido por Las aventuras de Tom Sawyer y Las aventuras de Huckleberry Finn.', 'Viajes');
   PERFORM CREAR_REDACCION('Agatha', 'Christie', 'https://ruta-imagen50', 'Escritora británica de novelas policíacas, creadora de Hercule Poirot y Miss Marple.', 'Gastronomia');
 
-  RAISE NOTICE 'Se han agregado todos los escritores existosamente';
+  RAISE NOTICE 'Se han agregado todos los escritores correctamente';
 
   id := CREAR_SECCION('Justicia');
   PERFORM CREAR_SUBSECCION(id, 'Conflicto y Narcotráfico');
@@ -151,11 +151,11 @@ BEGIN
   PERFORM CREAR_SUBSECCION(id, 'Dispositivos');
   PERFORM CREAR_SUBSECCION(id, 'Video juegos');
 
-  RAISE NOTICE 'Se han agregado todas las secciones y subseccaiones existosamente';
+  RAISE NOTICE 'Se han agregado todas las secciones y subsecciones correctamente';
 
   CALL RELACIONAR_USUARIOS_CON_SUBSECCIONES(0.1);
 
-  RAISE NOTICE 'Se han agregado las subsecciones guardadas por usuario existosamente';
+  RAISE NOTICE 'Se han agregado las subsecciones guardadas por usuario correctamente';
 
   PERFORM CREAR_ARTICULO(1, 'Estudio revela aumento de la contaminación en la ciudad',	'2023-05-21',	'Un estudio realizado por expertos en medio ambiente ha revelado un preocupante aumento de los nivele...',	'Impacto en la salud de los ciudadanos',	'imagen2.jpg',	'0', 20);
   PERFORM CREAR_ARTICULO(2, 'Entrevista exclusiva con reconocido cineasta',	'2023-05-20',	'En una entrevista exclusiva, el reconocido cineasta habla sobre su más reciente película, sus inspiraci...',	'Detrás de cámaras de su último éxito',	'imagen3.jpg',	'1', 10);
@@ -234,7 +234,7 @@ BEGIN
   PERFORM CREAR_ARTICULO(5,'Investigadores descubren nueva especie de planta en la selva africana','2023-03-17','Investigadores han descubierto una nueva especie de planta en la selva africana. Este descubrimiento destaca la importancia de la biodiversidad y la conservación de los ecosistemas.','Nueva especie de planta en la selva africana','especie_planta_selva_africana.jpg','0');
   PERFORM CREAR_ARTICULO(7,'Estudio demuestra beneficios de la terapia génica en el tratamiento de enfermedades genéticas','2023-03-16','Un estudio científico ha demostrado los beneficios de la terapia génica en el tratamiento de enfermedades genéticas. Esta técnica innovadora tiene el potencial de corregir mutaciones genéticas y mejorar la calidad de vida de los pacientes.','Beneficios de la terapia génica en el tratamiento de enfermedades genéticas','terapia_genica_enfermedades_geneticas.jpg','1');
 
-  RAISE NOTICE 'Se han agregado los articulos existosamente';
+  RAISE NOTICE 'Se han agregado los articulos correctamente';
 
   PERFORM CREAR_ETIQUETA('Reflexiones personales');
   PERFORM CREAR_ETIQUETA('Experiencias de viaje');
@@ -267,11 +267,23 @@ BEGIN
   PERFORM CREAR_ETIQUETA('Conexión con la naturaleza');
   PERFORM CREAR_ETIQUETA('Historias inspiradoras');
 
-  RAISE NOTICE 'Se han agregado las etiquetas existosamente';
+  RAISE NOTICE 'Se han agregado las etiquetas correctamente';
 
   CALL RELACIONAR_ARTICULOS_CON_ETIQUETAS(0.05);
 
-  RAISE NOTICE 'Se han relacionado las etiquetas con los articulos existosamente';
+  RAISE NOTICE 'Se han relacionado las etiquetas con los articulos correctamente';
 
+  INSERT INTO TiposDePlanes VALUES (0, 'Plan digital');
+  INSERT INTO TiposDePlanes VALUES (1, 'Plan digital pro');
+
+  INSERT INTO Planes VALUES (1, 99900, 'Plan Anual', 1, 12);
+  INSERT INTO Planes VALUES (2, 299900, 'Plan 18 meses', 1, 18);
+  INSERT INTO Planes VALUES (3, 16900, 'Plan Digital Mensual', 0, 1);
+
+  RAISE NOTICE 'Se han agregado los planes correctamente';
+
+  CALL CREAR_SUSCRIPCIONES(0.4);
+
+  RAISE NOTICE 'Se han agregado suscripciones a usuarios correctamente';
 
 END $$ LANGUAGE plpgsql;

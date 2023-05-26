@@ -39,3 +39,21 @@ BEGIN
   END LOOP;
 
 END $$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE PROCEDURE CREAR_SUSCRIPCIONES(factor FLOAT)
+AS $$ 
+DECLARE 
+  id_usuario INT;
+  id_plan INT;
+  cantidad_planes INT;
+BEGIN
+  SELECT COUNT(*) INTO cantidad_planes FROM Planes;
+  FOR id_usuario IN SELECT idUsuario FROM Usuarios LOOP
+    IF random() > factor THEN
+      id_plan := random() * cantidad_planes + 1;
+      INSERT INTO Suscripciones (fechaInicio, idPlan, idUsuario) VALUES (NOW(), id_plan, id_usuario);
+    END IF;
+  END LOOP;
+
+END $$ LANGUAGE plpgsql;

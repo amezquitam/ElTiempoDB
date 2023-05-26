@@ -125,7 +125,7 @@ AS $$ BEGIN
     idTipo integer NOT NULL,
     duracionEnMeses integer NOT NULL,
     PRIMARY KEY (idPlan),
-    FOREIGN KEY (idPlan) REFERENCES TiposDePlanes(idTipoDePlan)
+    FOREIGN KEY (idTipo) REFERENCES TiposDePlanes(idTipoDePlan)
   );
 
   CREATE TABLE IF NOT EXISTS Suscripciones
@@ -378,7 +378,7 @@ AS $$ BEGIN
     FOREIGN KEY (idTipo) REFERENCES TiposDeCondolencias(idTipo)
   );
 
-  RAISE NOTICE 'Se han creado todas las tablas existosamente';
+  RAISE NOTICE 'Se han creado todas las tablas correctamente';
 
 END $$ LANGUAGE plpgsql;
 
@@ -426,5 +426,5 @@ AS $$ BEGIN
   DROP TABLE IF EXISTS Autores;
   DROP TABLE IF EXISTS Usuarios;
 
-  RAISE NOTICE 'Se han eliminado todas las tablas existosamente';
+  RAISE NOTICE 'Se han eliminado todas las tablas correctamente';
 END $$ LANGUAGE plpgsql;
