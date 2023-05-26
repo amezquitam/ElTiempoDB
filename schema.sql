@@ -76,6 +76,15 @@ AS $$ BEGIN
     FOREIGN KEY (idSeccion) REFERENCES Secciones(idSeccion)
   );
 
+  CREATE TABLE IF NOT EXISTS SubseccionesArticulos
+  (
+    idSubSeccion integer,
+    idArticulo integer,
+    PRIMARY KEY (idSubSeccion, idArticulo),
+    FOREIGN KEY (idSubSeccion) REFERENCES SubSecciones(idSubSeccion),
+    FOREIGN KEY (idArticulo) REFERENCES Articulos(idArticulo)
+  )
+
   CREATE TABLE IF NOT EXISTS UsuarioSubsecciones
   (
     idUsuario integer,
