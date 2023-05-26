@@ -114,7 +114,7 @@ AS $$ BEGIN
     precio numeric NOT NULL,
     descripcion VARCHAR,
     idTipo integer NOT NULL,
-    duracionEnDias integer NOT NULL,
+    duracionEnMeses integer NOT NULL,
     PRIMARY KEY (idPlan),
     FOREIGN KEY (idPlan) REFERENCES TiposDePlanes(idTipoDePlan)
   );
