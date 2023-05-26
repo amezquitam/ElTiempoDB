@@ -153,7 +153,7 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado todas las secciones y subseccaiones existosamente';
 
-  CALL RELACIONAR_USUARIOS_CON_SUBSECCIONES();
+  CALL RELACIONAR_USUARIOS_CON_SUBSECCIONES(0.1);
 
   RAISE NOTICE 'Se han agregado las subsecciones guardadas por usuario existosamente';
 
@@ -235,5 +235,43 @@ BEGIN
   PERFORM CREAR_ARTICULO(7,'Estudio demuestra beneficios de la terapia génica en el tratamiento de enfermedades genéticas','2023-03-16','Un estudio científico ha demostrado los beneficios de la terapia génica en el tratamiento de enfermedades genéticas. Esta técnica innovadora tiene el potencial de corregir mutaciones genéticas y mejorar la calidad de vida de los pacientes.','Beneficios de la terapia génica en el tratamiento de enfermedades genéticas','terapia_genica_enfermedades_geneticas.jpg','1');
 
   RAISE NOTICE 'Se han agregado los articulos existosamente';
+
+  PERFORM CREAR_ETIQUETA('Reflexiones personales');
+  PERFORM CREAR_ETIQUETA('Experiencias de viaje');
+  PERFORM CREAR_ETIQUETA('Metas y logros');
+  PERFORM CREAR_ETIQUETA('Desafíos y superaciones');
+  PERFORM CREAR_ETIQUETA('Inspiración diaria');
+  PERFORM CREAR_ETIQUETA('Momentos de gratitud');
+  PERFORM CREAR_ETIQUETA('Amistades y relaciones');
+  PERFORM CREAR_ETIQUETA('Aventuras al aire libre');
+  PERFORM CREAR_ETIQUETA('Recetas y gastronomía');
+  PERFORM CREAR_ETIQUETA('Descubrimientos culturales');
+  PERFORM CREAR_ETIQUETA('Libros recomendados');
+  PERFORM CREAR_ETIQUETA('Películas y series favoritas');
+  PERFORM CREAR_ETIQUETA('Retos de bienestar');
+  PERFORM CREAR_ETIQUETA('Proyectos creativos');
+  PERFORM CREAR_ETIQUETA('Lecciones aprendidas');
+  PERFORM CREAR_ETIQUETA('Ideas y pensamientos filosóficos');
+  PERFORM CREAR_ETIQUETA('Consejos de productividad');
+  PERFORM CREAR_ETIQUETA('Ejercicios de autocuidado');
+  PERFORM CREAR_ETIQUETA('Sueños y aspiraciones');
+  PERFORM CREAR_ETIQUETA('Recuerdos de la infancia');
+  PERFORM CREAR_ETIQUETA('Momentos de relajación');
+  PERFORM CREAR_ETIQUETA('Música y playlists del momento');
+  PERFORM CREAR_ETIQUETA('Lecciones de vida');
+  PERFORM CREAR_ETIQUETA('Frases motivadoras');
+  PERFORM CREAR_ETIQUETA('Rituales matutinos');
+  PERFORM CREAR_ETIQUETA('Lugares para visitar');
+  PERFORM CREAR_ETIQUETA('Hobbies y pasatiempos');
+  PERFORM CREAR_ETIQUETA('Desafíos personales');
+  PERFORM CREAR_ETIQUETA('Conexión con la naturaleza');
+  PERFORM CREAR_ETIQUETA('Historias inspiradoras');
+
+  RAISE NOTICE 'Se han agregado las etiquetas existosamente';
+
+  CALL RELACIONAR_ARTICULOS_CON_ETIQUETAS(0.05);
+
+  RAISE NOTICE 'Se han relacionado las etiquetas con los articulos existosamente';
+
 
 END $$ LANGUAGE plpgsql;
