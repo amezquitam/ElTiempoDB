@@ -49,9 +49,10 @@ DECLARE
   cantidad_planes INT;
 BEGIN
   SELECT COUNT(*) INTO cantidad_planes FROM Planes;
+  
   FOR id_usuario IN SELECT idUsuario FROM Usuarios LOOP
     IF random() > factor THEN
-      id_plan := random() * cantidad_planes + 1;
+      id_plan := random() * (cantidad_planes - 1) + 1;
       INSERT INTO Suscripciones (fechaInicio, idPlan, idUsuario) VALUES (NOW(), id_plan, id_usuario);
     END IF;
   END LOOP;
