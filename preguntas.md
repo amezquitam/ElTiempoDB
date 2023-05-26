@@ -1,5 +1,5 @@
 # Las 20 preguntas sobre consultas relacionadas con la base de datos de El Tiempo
-###1.   ¿Cuales son los nombres, apellidos, correo electronico de usuarios que han comentado en articulos pertenecientes a la sub-seccion 'Futbol internacional'?
+###1.   ¿Cuales son los nombres, apellidos, correo electronico de usuarios que han comentado en articulos pertenecientes una sub-seccion en especifico?
 ###2.   ¿Cuál es el número total de usuarios registrados?
 ###3.   ¿Cuál es el nombre completo del autor con ID 5?
 ###4.   ¿Cuál es el título del artículo con ID 10?

@@ -80,14 +80,138 @@ LIMIT 1;
 	10. ¿Cuál es el autor de la historia que ha sido visualizada más veces?
 */
 
-SELECT A.nombres || ' ' || A.apellidos AS autor, H.idHistoria, H.idGaleria, H.imagen, H.cuerpo,
-			MAX(SELECT CO.visualizaciones
-			FROM Contenidos as CO
-			WHERE CO.idContenido = H.idHistoria) AS max_visualizaciones
+SELECT A.nombres || ' ' || A.apellidos AS autor, H.idHistoria, H.idGaleria, H.imagen, H.cuerpo, CO.visualizaciones
 FROM Historias H
 JOIN Galerias G ON H.idGaleria = G.idGaleria
 JOIN Caricaturistas C ON G.idGaleria = C.idCaricaturista
 JOIN Autores A ON C.idRedSocial = A.idAutor
-GROUP BY A.nombres, A.apellidos, H.idHistoria, H.idGaleria, H.imagen, H.cuerpo
-ORDER BY max_visualizaciones DESC
+JOIN Contenidos CO ON CO.idContenido = H.idHistoria
+WHERE CO.idContenido IN (
+    SELECT idContenido
+    FROM Contenidos
+    WHERE idContenido = H.idHistoria
+    ORDER BY visualizaciones DESC
+    LIMIT 1
+);
+
+/*
+	11. ¿Cuál es el autor que ha escrito el artículo más reciente en una determinada subsección?
+*/
+
+SELECT obtener_autor_articulo_reciente('Nombre de la Subseccion');
+
+/*
+	12. ¿Cuál es la subsección con el mayor número de usuarios suscritos?
+*/
+
+SELECT S.nombre, COUNT(*) AS total_suscriptores
+FROM SubSecciones S
+JOIN UsuarioSubsecciones US ON S.idSubSeccion = US.idSubSeccion
+GROUP BY S.nombre
+ORDER BY total_suscriptores DESC
 LIMIT 1;
+
+/*
+	13. ¿Cuál es el nombre del podcast con la menor cantidad de episodios?
+*/
+
+SELECT P.titulo
+FROM Podcasts P
+LEFT JOIN EpisodiosPodcasts EP ON P.idPodcast = EP.idPodcast
+GROUP BY P.titulo
+HAVING COUNT(EP.idArticulo) = (
+  SELECT COUNT(idArticulo)
+  FROM EpisodiosPodcasts
+  GROUP BY idPodcast
+  ORDER BY COUNT(idArticulo) ASC
+  LIMIT 1
+);
+
+/*
+	14. ¿Cuál es el bloguero que ha escrito la actualización de blog con el mayor número de comentarios?
+*/
+
+SELECT B.nombreCompleto, COUNT(C.idComentario) AS total_comentarios
+FROM Blogueros B
+JOIN Blogs BL ON B.idBloguero = BL.idBloguero
+JOIN ActualizacionesDeBlogs AB ON BL.idBlog = AB.idBlog
+JOIN ComentariosBlogs CB ON AB.idContenido = CB.idContenido
+JOIN Comentarios C ON CB.idComentario = C.idComentario
+GROUP BY B.nombreCompleto
+ORDER BY total_comentarios DESC
+LIMIT 1;
+
+/*
+	15. ¿Cuál es el juego con el porcentaje más alto de votos positivos en los comentarios?
+*/
+
+SELECT J.nombre, COUNT(V.idVoto) AS total_votos, COUNT(V.idVoto) FILTER (WHERE V.voto = true) AS votos_positivos,
+       (COUNT(V.idVoto) FILTER (WHERE V.voto = true) * 100.0 / COUNT(V.idVoto)) AS porcentaje_positivo
+FROM Juegos J
+JOIN ActualizacionesJuegos AJ ON J.idJuego = AJ.idJuego
+JOIN ComentariosArticulos CA ON AJ.idActualización = CA.idComentario
+JOIN Votos V ON CA.idComentario = V.idComentario
+GROUP BY J.idJuego
+ORDER BY porcentaje_positivo DESC
+LIMIT 1;
+
+/*
+	16. ¿Cuál es el autor que ha escrito el artículo con el mayor número de etiquetas asociadas?
+*/
+
+SELECT A.nombres || ' ' || A.apellidos AS autor
+FROM Autores A
+JOIN Escritores E ON A.idAutor = E.idAutor
+JOIN Articulos AR ON E.idAutor = AR.idAutor
+JOIN (
+  SELECT idArticulo, COUNT(*) AS num_etiquetas
+  FROM EtiquetasDeArticulos
+  GROUP BY idArticulo
+  ORDER BY num_etiquetas DESC
+  LIMIT 1
+) AS T ON AR.idArticulo = T.idArticulo
+WHERE AR.idAutor = E.idAutor;
+
+/*
+	17. ¿Cuál es la sección que contiene el mayor número de subsecciones?
+*/
+
+SELECT S.nombre AS seccion, num_subsecciones as cantidadSubsecciones
+FROM Secciones S
+INNER JOIN (
+    SELECT idSeccion, COUNT(*) AS num_subsecciones
+    FROM SubSecciones
+    GROUP BY idSeccion
+    ORDER BY num_subsecciones DESC
+    LIMIT 1
+) AS SubseccionesCount ON S.idSeccion = SubseccionesCount.idSeccion;
+
+/*
+	18. ¿Cuál es el blog que ha sido actualizado por el mayor número de blogueros diferentes?
+*/
+
+SELECT B.idBlog, COUNT(DISTINCT BU.idUsuario) AS num_blogueros
+FROM Blogs B
+JOIN BlogDeUsuarios BU ON B.idBlog = BU.idBlog
+GROUP BY B.idBlog
+ORDER BY num_blogueros DESC
+LIMIT 1;
+
+/*
+	19. ¿Cuál es el tema del día con la menor cantidad de noticias asociadas?
+*/
+
+SELECT TD.nombre AS tema_del_dia, COUNT(N.idArticulo) AS cantidad_noticias
+FROM TemasDelDia TD
+LEFT JOIN Noticias N ON TD.idTemaDelDia = N.idTemaDelDia
+GROUP BY TD.idTemaDelDia, TD.nombre
+ORDER BY COUNT(N.idArticulo) ASC
+LIMIT 1;
+
+/*
+	20. ¿Cuales son los nombres, apellidos, correo electronico de usuarios que han
+		 comentado en articulos pertenecientes una sub-seccion en especifico?
+*/
+
+SELECT nombres, apellidos, correo_electronico
+FROM obtener_usuarios_por_subseccion('nombre_subseccion_especifica');
