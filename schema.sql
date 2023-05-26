@@ -135,7 +135,7 @@ AS $$ BEGIN
     idPlan integer NOT NULL,
     idUsuario integer NOT NULL,
     PRIMARY KEY (idSuscripcion),
-    FOREIGN KEY (idPlan) REFERENCES TiposDePlanes(idTipoDePlan),
+    FOREIGN KEY (idPlan) REFERENCES Planes(idPlan),
     FOREIGN KEY (idUsuario) REFERENCES Usuarios(idUsuario)
   );
 
