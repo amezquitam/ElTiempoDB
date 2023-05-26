@@ -103,3 +103,13 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION CREAR_ETIQUETA (nombre VARCHAR) RETURNS INTEGER AS $$ 
+DECLARE id INTEGER;
+BEGIN
+  INSERT INTO Etiquetas (nombre)
+  VALUES (nombre)
+  RETURNING idEtiqueta INTO id;
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
