@@ -132,19 +132,59 @@ $$ LANGUAGE plpgsql;
 DROP FUNCTION IF EXISTS CREAR_BLOGUERO;
 
 CREATE OR REPLACE FUNCTION CREAR_BLOGUERO (
-  nombre_bloguero VARCHAR, descripcion VARCHAR, 
+  nombre_bloguero VARCHAR, descripcion_bloguero VARCHAR, 
   tipo_red_social VARCHAR, url_red_social VARCHAR
+) RETURNS INTEGER AS $$ 
+DECLARE idRedSocial_ INTEGER := NULL; id INTEGER;
+BEGIN
+
+  idRedSocial_ := CREAR_RED_SOCIAL(tipo_red_social, url_red_social);
+
+  INSERT INTO Blogueros (nombreCompleto, descripcion, idRedSocial)
+  VALUES (nombre_bloguero, descripcion_bloguero, idRedSocial_)
+  RETURNING idBloguero INTO id;
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS CREAR_CARICATURISTA;
+
+CREATE OR REPLACE FUNCTION CREAR_CARICATURISTA (
+  nombre_caricaturista VARCHAR, descripcion_cariaturista VARCHAR, 
+  portada_caricaturista VARCHAR, pseudonimo_caricaturista VARCHAR,
+  tipo_red_social VARCHAR, url_red_social VARCHAR
+) RETURNS INTEGER AS $$ 
+DECLARE idRedSocial_ INTEGER := NULL; id INTEGER;
+BEGIN
+
+  idRedSocial_ := CREAR_RED_SOCIAL(tipo_red_social, url_red_social);
+
+  INSERT INTO Caricaturistas (nombre, descripcion, portada, pseudonimo, idRedSocial)
+  VALUES (nombre_caricaturista, descripcion_cariaturista, portada_caricaturista, pseudonimo_caricaturista, idRedSocial_)
+  RETURNING idCaricaturista INTO id;
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS CREAR_RED_SOCIAL;
+
+CREATE OR REPLACE FUNCTION CREAR_RED_SOCIAL (
+  nombre_red_social VARCHAR, url_red_social VARCHAR
 ) RETURNS INTEGER AS $$ 
 DECLARE idTipoRed INTEGER := NULL; id INTEGER;
 BEGIN
 
   SELECT idTipo INTO idTipoRed
   FROM TiposRedesSociales 
-  WHERE LOWER(nombre) = LOWER(tipo_red_social);
+  WHERE LOWER(nombre) = LOWER(nombre_red_social);
 
   IF idTIpoRed IS NULL THEN
     INSERT INTO TiposRedesSociales (nombre)
-    VALUES (tipo_red_social)
+    VALUES (nombre_red_social)
     RETURNING idTipo INTO idTipoRed;
   END IF;
 

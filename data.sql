@@ -318,6 +318,8 @@ BEGIN
   ('Ciencia y tecnología'),
   ('Curiosidades y entretenimiento');
 
+  RAISE NOTICE 'Se han agregado categorias de blogs correctamente';
+
   PERFORM CREAR_BLOGUERO ('AnaSofíaBlog', 'Apasionada de la moda y las últimas tendencias.', 'Instagram', 'www.instagram.com/AnaSofíaBlog');
   PERFORM CREAR_BLOGUERO ('FoodieAdventur', 'Explorador culinario en busca de sabores exóticos.', 'YouTube', 'www.youtube.com/FoodieAdventur');
   PERFORM CREAR_BLOGUERO ('TravelWanderer', 'Viajera empedernida compartiendo experiencias únicas.', 'Twitter', 'www.twitter.com/TravelWanderer');
@@ -333,4 +335,64 @@ BEGIN
   PERFORM CREAR_BLOGUERO ('BeautyVlogger', 'Compartiendo trucos y consejos de belleza.', 'YouTube', 'www.youtube.com/BeautyVlogger');
   PERFORM CREAR_BLOGUERO ('LifestyleInfluencer', 'Inspirando un estilo de vida equilibrado y positivo.', 'Instagram', 'www.instagram.com/LifestyleInfluencer');
   PERFORM CREAR_BLOGUERO ('FitnessJunkie', 'Amante del fitness y la vida saludable.', 'Instagram', 'www.instagram.com/FitnessJunkie');
+
+  INSERT INTO Blogs (idBloguero, titulo) VALUES
+  (1, 'Mis secretos de moda'),
+  (1, 'Tendencias primavera-verano'),
+  (1, 'Consejos para combinar colores'),
+  (1, 'Outfits elegantes para ocasiones especiales'),
+  (1, 'Los must-have de la temporada'),
+  (2, 'Recetas exóticas del mundo'),
+  (2, 'Descubriendo la comida callejera'),
+  (2, 'Sabores del sudeste asiático'),
+  (2, 'Ruta gastronómica por Europa'),
+  (2, 'Cocina saludable y deliciosa'),
+  (3, 'Destinos paradisíacos'),
+  (3, 'Aventuras en la selva'),
+  (3, 'Descubriendo culturas locales'),
+  (3, 'Guía de viaje para mochileros'),
+  (3, 'Experiencias únicas alrededor del mundo'),
+  (4, 'Entrenamientos para tonificar el cuerpo'),
+  (4, 'Rutinas de ejercicios en casa'),
+  (4, 'Alimentación saludable y equilibrada'),
+  (4, 'Consejos para mantenerse motivado'),
+  (4, 'Transformación fitness: mi historia'),
+  (5, 'Últimas novedades tecnológicas'),
+  (5, 'Reseñas de gadgets y dispositivos'),
+  (5, 'Tendencias en inteligencia artificial'),
+  (5, 'Seguridad informática: consejos y trucos'),
+  (5, 'Desarrollo de aplicaciones móviles'),
+  (6, 'Maquillaje para ocasiones especiales'),
+  (6, 'Tutoriales de cuidado de la piel'),
+  (6, 'Productos favoritos del mes'),
+  (6, 'Tendencias de maquillaje para cada estación'),
+  (6, 'Secretos de belleza y bienestar'),
+  (7, 'Outfits de la semana'),
+  (7, 'Desfiles de moda y eventos'),
+  (7, 'Consejos de estilo y combinaciones'),
+  (7, 'Tendencias en accesorios'),
+  (7, 'Recorrido por tiendas vintage'),
+  (8, 'Recetas gourmet para impresionar'),
+  (8, 'Cocina tradicional con un toque moderno'),
+  (8, 'Postres irresistibles y fáciles de hacer'),
+  (8, 'Maridaje de vinos y platos'),
+  (8, 'Sabores del mundo en tu cocina');
+
+  RAISE NOTICE 'Se han agregado los blogs correctamente';
+
+  INSERT INTO BlogDeUsuarios (idBlog, idUsuario) VALUES (2, 5), (8, 6), (1, 8), (9, 3);
+
+  PERFORM CREAR_CARICATURISTA('Juan Pérez', 'Caricaturista especializado en política', 'www.page.com/url/to/image', 'CaricuJuan', 'Twitter', 'twitter.com/caricu_juan');
+  PERFORM CREAR_CARICATURISTA('María Gómez', 'Ilustradora humorística', 'www.page.com/url/to/image', 'LaMaría', 'Instagram', 'instagram.com/lamaria_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Carlos Rodríguez', 'Caricaturista de famosos', 'www.page.com/url/to/image', 'Carlitos', 'Facebook', 'facebook.com/carlosrodriguezcaricaturas');
+  PERFORM CREAR_CARICATURISTA('Laura Torres', 'Caricaturista de deportes', 'www.page.com/url/to/image', 'LaTorre', 'TikTok', 'tiktok.com/@latorre_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Andrés López', 'Caricaturista político y satírico', 'www.page.com/url/to/image', 'Andy', 'YouTube', 'youtube.com/c/andy_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Ana Morales', 'Caricaturista de animales', 'www.page.com/url/to/image', 'AniMora', 'Pinterest', 'pinterest.com/animora_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Luis Silva', 'Caricaturista de actualidad', 'www.page.com/url/to/image', 'ElLucho', 'LinkedIn', 'linkedin.com/in/ellucho-caricaturista');
+  PERFORM CREAR_CARICATURISTA('Carolina Vargas', 'Caricaturista infantil', 'www.page.com/url/to/image', 'CaroV', 'Tumblr', 'carovargas-caricaturas.tumblr.com');
+  PERFORM CREAR_CARICATURISTA('Javier Mendoza', 'Caricaturista de cine y televisión', 'www.page.com/url/to/image', 'JaviM', 'Behance', 'behance.net/javiermendoza-caricaturas');
+  PERFORM CREAR_CARICATURISTA('Marta López', 'Caricaturista de moda y estilo de vida', 'www.page.com/url/to/image', 'Martita', 'DeviantArt', 'martitalopez.deviantart.com');
+
+  RAISE NOTICE 'Se han agregado los caricaturistas correctamente';
+
 END $$ LANGUAGE plpgsql;
