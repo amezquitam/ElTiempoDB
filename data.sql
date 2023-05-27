@@ -286,4 +286,42 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado suscripciones a usuarios correctamente';
 
+  INSERT INTO TiposRedesSociales VALUES (0, 'Twitter');
+  INSERT INTO TiposRedesSociales VALUES (1, 'Facebook');
+  INSERT INTO TiposRedesSociales VALUES (2, 'Instagram');
+
+  INSERT INTO CategoriasDeBlogs (nombre) VALUES 
+  ('Tecnología'),
+  ('Viajes'),
+  ('Moda'),
+  ('Belleza'),
+  ('Salud y bienestar'),
+  ('Alimentación y nutrición'),
+  ('Fitness y ejercicio'),
+  ('Maternidad y crianza'),
+  ('Finanzas personales'),
+  ('Desarrollo personal'),
+  ('Espiritualidad'),
+  ('Productividad y organización'),
+  ('Arte y creatividad'),
+  ('Cine y televisión'),
+  ('Libros y literatura'),
+  ('Música'),
+  ('Fotografía'),
+  ('Decoración y diseño de interiores'),
+  ('Jardinería'),
+  ('DIY (Hazlo tú mismo)'),
+  ('Mascotas'),
+  ('Sostenibilidad y medio ambiente'),
+  ('Consejos para el hogar'),
+  ('Emprendimiento y negocios'),
+  ('Marketing digital'),
+  ('Redes sociales'),
+  ('Educación'),
+  ('Política y sociedad'),
+  ('Ciencia y tecnología'),
+  ('Curiosidades y entretenimiento');
+
+  
+
 END $$ LANGUAGE plpgsql;
