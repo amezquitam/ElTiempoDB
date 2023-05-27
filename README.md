@@ -10,8 +10,8 @@ CREATE DATABASE ElTiempoDB;
 
 2. Conectarse a la base de datos
 
-```sql
-\c eltiempodb;
+```psql
+\c eltiempodb
 ```
 
 3. Ejecutar las instrucciones de los archivos: [data.sql](data.sql), [functions.sql](functions.sql), [procedures.sql](procedures.sql) y [schema.sql](schema.sql). No importa el orden
