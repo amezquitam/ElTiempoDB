@@ -286,10 +286,6 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado suscripciones a usuarios correctamente';
 
-  INSERT INTO TiposRedesSociales VALUES (0, 'Twitter');
-  INSERT INTO TiposRedesSociales VALUES (1, 'Facebook');
-  INSERT INTO TiposRedesSociales VALUES (2, 'Instagram');
-
   INSERT INTO CategoriasDeBlogs (nombre) VALUES 
   ('Tecnología'),
   ('Viajes'),
@@ -322,6 +318,11 @@ BEGIN
   ('Ciencia y tecnología'),
   ('Curiosidades y entretenimiento');
 
-  
+  PERFORM CREAR_BLOGUERO ('AnaSofíaBlog',	'Apasionada de la moda y las últimas tendencias.',	'Instagram',	'www.instagram.com/AnaSofíaBlog');
+  PERFORM CREAR_BLOGUERO ('FoodieAdventur',	'Explorador culinario en busca de sabores exóticos.',	'YouTube',	'www.youtube.com/FoodieAdventur');
+  PERFORM CREAR_BLOGUERO ('TravelWanderer',	'Viajera empedernida compartiendo experiencias únicas.',	'Twitter',	'www.twitter.com/TravelWanderer');
+  PERFORM CREAR_BLOGUERO ('FitnessGuru',	'Motivando a otros a alcanzar su mejor versión física.',	'TikTok', 'www.tiktok.com/FitnessGuru');
+  PERFORM CREAR_BLOGUERO ('TechGeek',	'Compartiendo las últimas novedades tecnológicas.',	'LinkedIn',	'www.linkedin.com/in/TechGeek');
+  PERFORM CREAR_BLOGUERO ('BeautyEnthus',	'Apasionada por el maquillaje y los secretos de belleza.',	'Blog',	'www.beautyenthus.com');
 
 END $$ LANGUAGE plpgsql;
