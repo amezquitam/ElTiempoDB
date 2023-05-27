@@ -142,7 +142,7 @@ AS $$ BEGIN
   CREATE TABLE IF NOT EXISTS TiposRedesSociales
   (
     idTipo serial,
-    nombre VARCHAR NOT NULL,
+    nombre VARCHAR NOT NULL UNIQUE,
     PRIMARY KEY (idTipo)
   );
 
