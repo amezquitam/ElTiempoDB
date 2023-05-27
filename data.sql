@@ -324,5 +324,13 @@ BEGIN
   PERFORM CREAR_BLOGUERO ('FitnessGuru',	'Motivando a otros a alcanzar su mejor versión física.',	'TikTok', 'www.tiktok.com/FitnessGuru');
   PERFORM CREAR_BLOGUERO ('TechGeek',	'Compartiendo las últimas novedades tecnológicas.',	'LinkedIn',	'www.linkedin.com/in/TechGeek');
   PERFORM CREAR_BLOGUERO ('BeautyEnthus',	'Apasionada por el maquillaje y los secretos de belleza.',	'Blog',	'www.beautyenthus.com');
-
+  PERFORM CREAR_BLOGUERO ('FashionistaStyle', 'Amante de la moda y el estilo único.', 'Facebook', 'www.facebook.com/FashionistaStyle');
+  PERFORM CREAR_BLOGUERO ('GastronomyGuru', 'Explorando el mundo culinario con pasión.', 'YouTube', 'www.youtube.com/GastronomyGuru');
+  PERFORM CREAR_BLOGUERO ('AdventureSeeker', 'Buscando aventuras en cada rincón del planeta.', 'Twitter', 'www.twitter.com/AdventureSeeker');
+  PERFORM CREAR_BLOGUERO ('BookwormReads', 'Amante de la lectura y los libros fascinantes.', 'Goodreads', 'www.goodreads.com/BookwormReads');
+  PERFORM CREAR_BLOGUERO ('ArtisticSoul', 'Expresando el arte a través de diferentes medios.', 'Instagram', 'www.instagram.com/ArtisticSoul');
+  PERFORM CREAR_BLOGUERO ('TechWhiz', 'Compartiendo conocimientos sobre tecnología de vanguardia.', 'LinkedIn', 'www.linkedin.com/in/TechWhiz');
+  PERFORM CREAR_BLOGUERO ('BeautyVlogger', 'Compartiendo trucos y consejos de belleza.', 'YouTube', 'www.youtube.com/BeautyVlogger');
+  PERFORM CREAR_BLOGUERO ('LifestyleInfluencer', 'Inspirando un estilo de vida equilibrado y positivo.', 'Instagram', 'www.instagram.com/LifestyleInfluencer');
+  PERFORM CREAR_BLOGUERO ('FitnessJunkie', 'Amante del fitness y la vida saludable.', 'Instagram', 'www.instagram.com/FitnessJunkie');
 END $$ LANGUAGE plpgsql;
