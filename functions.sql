@@ -148,8 +148,8 @@ BEGIN
     RETURNING idTipo INTO idTipoRed;
   END IF;
 
-  INSERT INTO RedesSociales (nombre, idTipo, enlace)
-  VALUES (nombre_bloguero, idTipoRed, url_red_social)
+  INSERT INTO RedesSociales (idTipo, enlace)
+  VALUES (idTipoRed, url_red_social)
   RETURNING idRedSocial INTO id;
 
   return id;
