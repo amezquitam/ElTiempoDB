@@ -83,7 +83,7 @@ AS $$ BEGIN
     PRIMARY KEY (idSubSeccion, idArticulo),
     FOREIGN KEY (idSubSeccion) REFERENCES SubSecciones(idSubSeccion),
     FOREIGN KEY (idArticulo) REFERENCES Articulos(idArticulo)
-  )
+  );
 
   CREATE TABLE IF NOT EXISTS UsuarioSubsecciones
   (
@@ -168,7 +168,8 @@ AS $$ BEGIN
     nombreCompleto VARCHAR NOT NULL,
     descripcion VARCHAR,
     idRedSocial integer NOT NULL,
-      PRIMARY KEY (idBloguero)
+    PRIMARY KEY (idBloguero),
+    FOREIGN KEY (idRedSocial) REFERENCES RedesSociales(idRedSocial)
   );
 
   CREATE TABLE IF NOT EXISTS Blogs
@@ -416,6 +417,7 @@ AS $$ BEGIN
   DROP TABLE IF EXISTS TiposDePlanes;
   DROP TABLE IF EXISTS EtiquetasDeArticulos;
   DROP TABLE IF EXISTS Etiquetas;
+  DROP TABLE IF EXISTS SubseccionesArticulos;
   DROP TABLE IF EXISTS UsuarioSubsecciones;
   DROP TABLE IF EXISTS SubSecciones;
   DROP TABLE IF EXISTS Secciones;
