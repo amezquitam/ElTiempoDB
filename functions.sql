@@ -238,3 +238,23 @@ BEGIN
   return id;
 END;
 $$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION CREAR_GALERIA (
+  titulo VARCHAR,
+  fechaPublicacion DATE,
+  visualizaciones INTEGER,
+  autor VARCHAR,
+  portada VARCHAR
+) RETURNS INTEGER AS $$
+DECLARE id INTEGER;
+BEGIN
+  INSERT INTO Contenidos (titulo, fechaPublicacion, visualizaciones)
+  VALUES (titulo, fechaPublicacion, visualizaciones)
+  RETURNING idContenido INTO id;
+
+  INSERT INTO Galerias
+  VALUES (id, autor, portada);
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;

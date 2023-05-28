@@ -435,4 +435,22 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado las actualizaciones de blogs correctamente';
 
+  PERFORM CREAR_GALERIA ('El misterio del abismo', '2023-04-02', 523, 'Julia Rodríguez', 'portada1.jpg');
+  PERFORM CREAR_GALERIA ('La caza del tesoro perdido', '2023-03-10', 789, 'Luis Martínez', 'portada2.jpg');
+  PERFORM CREAR_GALERIA ('El último vuelo', '2023-05-12', 321, 'Ana García', 'portada3.jpg');
+  PERFORM CREAR_GALERIA ('El enigma de la montaña', '2023-01-20', 1001, 'Carlos Sánchez', 'portada4.jpg');
+  PERFORM CREAR_GALERIA ('Secretos bajo la luna', '2023-02-14', 456, 'María Torres', 'portada5.jpg');
+  PERFORM CREAR_GALERIA ('La sombra del pasado', '2023-03-18', 874, 'Fernando López', 'portada6.jpg');
+  PERFORM CREAR_GALERIA ('El laberinto de la mente', '2023-04-10', 632, 'Laura Fernández', 'portada7.jpg');
+  PERFORM CREAR_GALERIA ('El secreto de la isla', '2023-05-05', 421, 'Jorge Ramírez', 'portada8.jpg');
+  PERFORM CREAR_GALERIA ('La venganza del pasado', '2023-01-25', 1098, 'Sofía Navarro', 'portada9.jpg');
+  PERFORM CREAR_GALERIA ('El misterio del faro', '2023-02-16', 543, 'Daniel Vargas', 'portada10.jpg');
+  PERFORM CREAR_GALERIA ('La conspiración oculta', '2023-03-22', 921, 'Gabriela Silva', 'portada11.jpg');
+  PERFORM CREAR_GALERIA ('La trampa mortal', '2023-04-18', 789, 'Andrés Gómez', 'portada12.jpg');
+  PERFORM CREAR_GALERIA ('El legado perdido', '2023-05-10', 382, 'Mariana Paredes', 'portada13.jpg');
+  PERFORM CREAR_GALERIA ('El susurro de las sombras', '2023-02-01', 1167, 'Pablo Reyes', 'portada14.jpg');
+  PERFORM CREAR_GALERIA ('El enigma de la cripta', '2023-02-25', 567, 'Isabel Torres', 'portada15.jpg');
+
+  RAISE NOTICE 'Se han agregado las galerias correctamente';
+
 END $$ LANGUAGE plpgsql;
