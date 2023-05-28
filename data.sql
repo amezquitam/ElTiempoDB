@@ -236,6 +236,10 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado los articulos correctamente';
 
+  CALL RELACIONAR_SUBSECCIONES_CON_ARTICULOS(0.1);
+
+  RAISE NOTICE 'Se han relacionado las subsecciones con los articulos correctamente';
+
   PERFORM CREAR_ETIQUETA('Reflexiones personales');
   PERFORM CREAR_ETIQUETA('Experiencias de viaje');
   PERFORM CREAR_ETIQUETA('Metas y logros');
@@ -394,5 +398,41 @@ BEGIN
   PERFORM CREAR_CARICATURISTA('Marta López', 'Caricaturista de moda y estilo de vida', 'www.page.com/url/to/image', 'Martita', 'DeviantArt', 'martitalopez.deviantart.com');
 
   RAISE NOTICE 'Se han agregado los caricaturistas correctamente';
+
+  PERFORM CREAR_CARICATURAS ('La vida en caricaturas', '2023-03-15', 523, 'caricatura1.jpg', 3);
+  PERFORM CREAR_CARICATURAS ('Política en dibujos', '2023-04-02', 789, 'caricatura2.jpg', 7);
+  PERFORM CREAR_CARICATURAS ('Caricaturas para reír', '2023-05-10', 321, 'caricatura3.jpg', 5);
+  PERFORM CREAR_CARICATURAS ('Actualidad en trazos', '2023-01-28', 1001, 'caricatura4.jpg', 2);
+  PERFORM CREAR_CARICATURAS ('Humor gráfico', '2023-02-14', 456, 'caricatura5.jpg', 9);
+  PERFORM CREAR_CARICATURAS ('Risas aseguradas', '2023-03-20', 874, 'caricatura6.jpg', 4);
+  PERFORM CREAR_CARICATURAS ('Caricaturas políticas', '2023-04-12', 632, 'caricatura7.jpg', 8);
+  PERFORM CREAR_CARICATURAS ('Caricaturas clásicas', '2023-05-05', 421, 'caricatura8.jpg', 1);
+  PERFORM CREAR_CARICATURAS ('Caricaturas en acción', '2023-01-30', 1098, 'caricatura9.jpg', 6);
+  PERFORM CREAR_CARICATURAS ('Diversión dibujada', '2023-02-18', 543, 'caricatura10.jpg', 10);
+  PERFORM CREAR_CARICATURAS ('Humor visual', '2023-03-25', 921, 'caricatura11.jpg', 3);
+  PERFORM CREAR_CARICATURAS ('Sátira política', '2023-04-15', 789, 'caricatura12.jpg', 7);
+  PERFORM CREAR_CARICATURAS ('Caricaturas para reflexionar', '2023-05-08', 382, 'caricatura13.jpg', 5);
+  PERFORM CREAR_CARICATURAS ('Momentos caricaturizados', '2023-02-02', 1167, 'caricatura14.jpg', 2);
+  PERFORM CREAR_CARICATURAS ('Caricaturas de actualidad', '2023-02-22', 567, 'caricatura15.jpg', 9);
+
+  RAISE NOTICE 'Se han agregado las caricaturas correctamente';
+
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Los secretos del universo', '2023-03-15', 523, 'Descubre los misterios ocultos del universo en esta fascinante exploración cósmica.', 12, 23);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Recetas exóticas del mundo', '2023-04-02', 789, 'Embárcate en un viaje culinario y prueba estas deliciosas recetas de diferentes culturas.', 8, 17);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Consejos para mejorar tu productividad', '2023-05-10', 321, 'Aumenta tu eficiencia y logra más en menos tiempo con estos consejos prácticos.', 15, 9);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Los mejores destinos para vacacionar', '2023-01-28', 1001, 'Descubre lugares paradisíacos para tus próximas vacaciones y crea recuerdos inolvidables.', 20, 35);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Las últimas tendencias de moda', '2023-02-14', 456, 'Mantente al día con las últimas tendencias de moda y luce fabulosa en cualquier ocasión.', 25, 4);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Cómo cultivar plantas en interiores', '2023-03-20', 874, 'Descubre todo lo que necesitas saber para crear un jardín interior lleno de vida y color.', 19, 32);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Los beneficios del ejercicio diario', '2023-04-12', 632, 'Mejora tu salud y bienestar adoptando una rutina diaria de ejercicios físicos.', 10, 21);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Consejos para un estilo de vida saludable', '2023-05-05', 421, 'Aprende hábitos y prácticas que te ayudarán a llevar una vida más saludable y equilibrada.', 7, 13);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Ideas para decorar tu hogar con estilo', '2023-01-30', 1098, 'Inspírate con estas ideas de decoración y transforma tu hogar en un espacio acogedor.', 22, 27);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Los mejores libros para leer este año', '2023-02-18', 543, 'Descubre las lecturas imprescindibles que te cautivarán durante todo el año.', 14, 3);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Destinos históricos para explorar', '2023-03-25', 921, 'Sumérgete en la historia visitando estos fascinantes destinos llenos de patrimonio cultural.', 18, 37);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Consejos para ahorrar dinero', '2023-04-15', 789, 'Aprende estrategias efectivas para ahorrar dinero y alcanzar tus metas financieras.', 9, 20);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Recetas saludables y deliciosas', '2023-05-08', 382, 'Disfruta de sabrosas recetas que cuidan tu salud y te permiten comer de forma balanceada.', 13, 29);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Consejos de viaje para mochileros', '2023-02-02', 1167, 'Descubre cómo viajar de forma económica y aventurera con estos consejos útiles.', 26, 7);
+  PERFORM CREAR_ACTUALIZACIONES_DE_BLOGS ('Los mejores destinos para amantes de la naturaleza', '2023-02-22', 567, 'Explora impresionantes paisajes naturales en estos destinos ideales para los amantes de la naturaleza.', 17, 39);
+
+  RAISE NOTICE 'Se han agregado las actualizaciones de blogs correctamente';
 
 END $$ LANGUAGE plpgsql;

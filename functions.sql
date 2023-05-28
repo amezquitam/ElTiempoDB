@@ -195,3 +195,46 @@ BEGIN
   return id;
 END;
 $$ LANGUAGE plpgsql;
+
+DROP FUNCTION IF EXISTS CREAR_CARICATURAS;
+
+CREATE OR REPLACE FUNCTION CREAR_CARICATURAS(
+  titulo VARCHAR,
+  fechaPublicacion DATE,
+  visualizaciones INTEGER,
+  imagen VARCHAR,
+  idCaricaturista INTEGER
+) RETURNS INTEGER AS $$
+DECLARE id INTEGER;
+BEGIN
+  INSERT INTO Contenidos (titulo, fechaPublicacion, visualizaciones)
+  VALUES (titulo, fechaPublicacion, visualizaciones)
+  RETURNING idContenido INTO id;
+  
+  INSERT INTO Caricaturas
+  VALUES (id, imagen, idCaricaturista);
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE FUNCTION CREAR_ACTUALIZACIONES_DE_BLOGS(
+  titulo VARCHAR,
+  fechaPublicacion DATE,
+  visualizaciones INTEGER,
+  cuerpo VARCHAR,
+  idCategoria INTEGER,
+  idBlog INTEGER
+) RETURNS INTEGER AS $$
+DECLARE id INTEGER;
+BEGIN
+  INSERT INTO Contenidos (titulo, fechaPublicacion, visualizaciones)
+  VALUES (titulo, fechaPublicacion, visualizaciones)
+  RETURNING idContenido INTO id;
+
+  INSERT INTO ActualizacionesDeBlogs
+  VALUES (id, cuerpo, visualizaciones, idCategoria, idBlog);
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;

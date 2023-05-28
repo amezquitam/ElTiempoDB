@@ -58,3 +58,20 @@ BEGIN
   END LOOP;
 
 END $$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE PROCEDURE RELACIONAR_SUBSECCIONES_CON_ARTICULOS(factor FLOAT)
+AS $$
+DECLARE
+id_subseccion INT;
+id_articulo INT;
+BEGIN
+  FOR id_articulo IN SELECT idArticulo FROM Articulos LOOP
+    FOR id_subseccion IN SELECT idSubSeccion FROM SubSecciones LOOP
+      IF random() < factor THEN
+        INSERT INTO SubseccionesArticulos VALUES (id_subseccion, id_articulo);
+      END IF;
+    END LOOP;
+  END LOOP;
+
+END $$ LANGUAGE plpgsql;
