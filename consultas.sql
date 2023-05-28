@@ -134,17 +134,12 @@ ORDER BY total_comentarios DESC
 LIMIT 1;
 
 /*
-	15. ¿Cuál es el juego con el porcentaje más alto de votos positivos en los comentarios?
+	15. ¿Cuál es el juego con mas actualizaciones?
 */
 
-SELECT J.nombre, COUNT(V.idVoto) AS total_votos, COUNT(V.idVoto) FILTER (WHERE V.voto = true) AS votos_positivos,
-       (COUNT(V.idVoto) FILTER (WHERE V.voto = true) * 100.0 / COUNT(V.idVoto)) AS porcentaje_positivo
-FROM Juegos J
-JOIN ActualizacionesJuegos AJ ON J.idJuego = AJ.idJuego
-JOIN ComentariosArticulos CA ON AJ.idActualización = CA.idComentario
-JOIN Votos V ON CA.idComentario = V.idComentario
-GROUP BY J.idJuego
-ORDER BY porcentaje_positivo DESC
+SELECT J.idJuego, count(A.idJuego)
+FROM Juegos J INNER JOIN ActualizacionesJuegos A ON J.idJuego = A.idJuego
+GROUP By J.idJuego
 LIMIT 1;
 
 /*

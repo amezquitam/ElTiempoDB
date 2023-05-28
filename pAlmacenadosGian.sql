@@ -8,9 +8,8 @@ DECLARE
   total_comentarios INTEGER;
 BEGIN
   SELECT COUNT(*) INTO total_comentarios
-  FROM Comentarios C
-  INNER JOIN Obituarios O ON C.idObituario = O.idObituario
-  WHERE O.lugar = lugar_obituario;
+  FROM Obituarios
+  WHERE lugar = lugar_obituario;
   
   RETURN total_comentarios;
 END;
@@ -62,17 +61,17 @@ $$ LANGUAGE plpgsql;
 /* Vistas creadas por Gianmarco Gambin Igirio */
 
 /* Para consulta 1 */
-CREATE VIEW TotalUsuarios AS
+CREATE OR REPLACE VIEW TotalUsuarios AS
 SELECT COUNT(*) AS totalUsuarios
 FROM Usuarios;
 
 /* Para consulta 4 */
-CREATE VIEW TotalSuscripciones AS
+CREATE OR REPLACE VIEW TotalSuscripciones AS
 SELECT COUNT(*) AS totalSuscripciones
 FROM Suscripciones;
 
 /* Para consulta 6 */
-CREATE VIEW AutoresPremium AS
+CREATE OR REPLACE VIEW AutoresPremium AS
 SELECT DISTINCT A.nombres || ' ' || A.apellidos AS nombreCompleto
 FROM Autores A
 INNER JOIN Escritores E ON A.idAutor = E.idAutor
