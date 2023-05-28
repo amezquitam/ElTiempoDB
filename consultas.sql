@@ -80,16 +80,11 @@ LIMIT 1;
 SELECT A.nombres || ' ' || A.apellidos AS autor, H.idHistoria, H.idGaleria, H.imagen, H.cuerpo, CO.visualizaciones
 FROM Historias H
 JOIN Galerias G ON H.idGaleria = G.idGaleria
-JOIN Caricaturistas C ON G.idGaleria = C.idCaricaturista
+JOIN Caricaturistas C ON G.autor = C.nombre
 JOIN Autores A ON C.idRedSocial = A.idAutor
 JOIN Contenidos CO ON CO.idContenido = H.idHistoria
-WHERE CO.idContenido IN (
-    SELECT idContenido
-    FROM Contenidos
-    WHERE idContenido = H.idHistoria
-    ORDER BY visualizaciones DESC
-    LIMIT 1
-);
+order by CO.visualizaciones desc
+limit 1;
 
 /*
 	11. ¿Cuál es el autor que ha escrito el artículo más reciente en una determinada subsección?
@@ -210,5 +205,5 @@ LIMIT 1;
 		 comentado en articulos pertenecientes una sub-seccion en especifico?
 */
 
-SELECT nombres, apellidos, correo_electronico
+SELECT DISTINCT nombres, apellidos, correo_electronico
 FROM obtener_usuarios_por_subseccion('nombre_subseccion_especifica');

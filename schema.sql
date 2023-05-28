@@ -412,6 +412,7 @@ AS $$ BEGIN
   DROP TABLE IF EXISTS CategoriasDeBlogs;
   DROP TABLE IF EXISTS RedesSociales;
   DROP TABLE IF EXISTS tiposRedesSociales;
+  DROP VIEW IF EXISTS TotalSuscripciones;
   DROP TABLE IF EXISTS Suscripciones;
   DROP TABLE IF EXISTS Planes;
   DROP TABLE IF EXISTS TiposDePlanes;
@@ -422,10 +423,12 @@ AS $$ BEGIN
   DROP TABLE IF EXISTS SubSecciones;
   DROP TABLE IF EXISTS Secciones;
   DROP TABLE IF EXISTS Redacciones;
+  DROP VIEW IF EXISTS AutoresPremium;
   DROP TABLE IF EXISTS Articulos;
   DROP TABLE IF EXISTS Contenidos;
   DROP TABLE IF EXISTS Escritores;
   DROP TABLE IF EXISTS Autores;
+  DROP VIEW IF EXISTS TotalUsuarios;
   DROP TABLE IF EXISTS Usuarios;
 
   RAISE NOTICE 'Se han eliminado todas las tablas correctamente';

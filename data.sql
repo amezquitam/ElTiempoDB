@@ -386,16 +386,16 @@ BEGIN
 
   INSERT INTO BlogDeUsuarios (idBlog, idUsuario) VALUES (2, 5), (8, 6), (1, 8), (9, 3);
 
-  PERFORM CREAR_CARICATURISTA('Juan Pérez', 'Caricaturista especializado en política', 'www.page.com/url/to/image', 'CaricuJuan', 'Twitter', 'twitter.com/caricu_juan');
-  PERFORM CREAR_CARICATURISTA('María Gómez', 'Ilustradora humorística', 'www.page.com/url/to/image', 'LaMaría', 'Instagram', 'instagram.com/lamaria_caricaturas');
-  PERFORM CREAR_CARICATURISTA('Carlos Rodríguez', 'Caricaturista de famosos', 'www.page.com/url/to/image', 'Carlitos', 'Facebook', 'facebook.com/carlosrodriguezcaricaturas');
-  PERFORM CREAR_CARICATURISTA('Laura Torres', 'Caricaturista de deportes', 'www.page.com/url/to/image', 'LaTorre', 'TikTok', 'tiktok.com/@latorre_caricaturas');
-  PERFORM CREAR_CARICATURISTA('Andrés López', 'Caricaturista político y satírico', 'www.page.com/url/to/image', 'Andy', 'YouTube', 'youtube.com/c/andy_caricaturas');
-  PERFORM CREAR_CARICATURISTA('Ana Morales', 'Caricaturista de animales', 'www.page.com/url/to/image', 'AniMora', 'Pinterest', 'pinterest.com/animora_caricaturas');
-  PERFORM CREAR_CARICATURISTA('Luis Silva', 'Caricaturista de actualidad', 'www.page.com/url/to/image', 'ElLucho', 'LinkedIn', 'linkedin.com/in/ellucho-caricaturista');
-  PERFORM CREAR_CARICATURISTA('Carolina Vargas', 'Caricaturista infantil', 'www.page.com/url/to/image', 'CaroV', 'Tumblr', 'carovargas-caricaturas.tumblr.com');
-  PERFORM CREAR_CARICATURISTA('Javier Mendoza', 'Caricaturista de cine y televisión', 'www.page.com/url/to/image', 'JaviM', 'Behance', 'behance.net/javiermendoza-caricaturas');
-  PERFORM CREAR_CARICATURISTA('Marta López', 'Caricaturista de moda y estilo de vida', 'www.page.com/url/to/image', 'Martita', 'DeviantArt', 'martitalopez.deviantart.com');
+  PERFORM CREAR_CARICATURISTA('Julia Rodríguez', 'Caricaturista especializado en política', 'www.page.com/url/to/image', 'CaricuJuan', 'Twitter', 'twitter.com/caricu_juan');
+  PERFORM CREAR_CARICATURISTA('Luis Martínez', 'Ilustradora humorística', 'www.page.com/url/to/image', 'LaMaría', 'Instagram', 'instagram.com/lamaria_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Ana García', 'Caricaturista de famosos', 'www.page.com/url/to/image', 'Carlitos', 'Facebook', 'facebook.com/carlosrodriguezcaricaturas');
+  PERFORM CREAR_CARICATURISTA('Carlos Sánchez', 'Caricaturista de deportes', 'www.page.com/url/to/image', 'LaTorre', 'TikTok', 'tiktok.com/@latorre_caricaturas');
+  PERFORM CREAR_CARICATURISTA('María Torres', 'Caricaturista político y satírico', 'www.page.com/url/to/image', 'Andy', 'YouTube', 'youtube.com/c/andy_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Fernando López', 'Caricaturista de animales', 'www.page.com/url/to/image', 'AniMora', 'Pinterest', 'pinterest.com/animora_caricaturas');
+  PERFORM CREAR_CARICATURISTA('Laura Fernández', 'Caricaturista de actualidad', 'www.page.com/url/to/image', 'ElLucho', 'LinkedIn', 'linkedin.com/in/ellucho-caricaturista');
+  PERFORM CREAR_CARICATURISTA('Jorge Ramírez', 'Caricaturista infantil', 'www.page.com/url/to/image', 'CaroV', 'Tumblr', 'carovargas-caricaturas.tumblr.com');
+  PERFORM CREAR_CARICATURISTA('Sofía Navarro', 'Caricaturista de cine y televisión', 'www.page.com/url/to/image', 'JaviM', 'Behance', 'behance.net/javiermendoza-caricaturas');
+  PERFORM CREAR_CARICATURISTA('Daniel Vargas', 'Caricaturista de moda y estilo de vida', 'www.page.com/url/to/image', 'Martita', 'DeviantArt', 'martitalopez.deviantart.com');
 
   RAISE NOTICE 'Se han agregado los caricaturistas correctamente';
 
@@ -471,10 +471,6 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado las historias correctamente';
 
-  PERFORM CREAR_COMENTARIO_ARTICULO ('Excelente artículo, muy informativo.','2023-05-01',12);
-
-  RAISE NOTICE 'Se han agregado los comentarios a los articulos correctamente';
-
   INSERT INTO Podcasts(titulo, portada) VALUES('Aventuras en la selva', 'aventuras_selva.jpg');
   INSERT INTO Podcasts(titulo, portada) VALUES('Misterio en la mansión', 'misterio_mansion.jpg');
   INSERT INTO Podcasts(titulo, portada) VALUES('El tesoro perdido', 'tesoro_perdido.jpg');
@@ -493,7 +489,154 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado los podcasts correctamente';
 
-  
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(35, 3);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(58, 8);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(12, 4);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(20, 1);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(45, 12);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(71, 5);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(14, 2);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(63, 11);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(29, 6);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(39, 9);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(50, 15);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(7, 13);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(67, 7);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(23, 10);
+  INSERT INTO EpisodiosPodcasts(idArticulo, idPodcast) VALUES(16, 1);
 
+  RAISE NOTICE 'Se han agregado los episodios de los podcast correctamente';
+
+  insert into PodcastsUsuarios values (12,3);
+  insert into PodcastsUsuarios values (8,10);
+  insert into PodcastsUsuarios values (23,5);
+  insert into PodcastsUsuarios values (5,12);
+  insert into PodcastsUsuarios values (41,7);
+  insert into PodcastsUsuarios values (32,1);
+  insert into PodcastsUsuarios values (17,14);
+  insert into PodcastsUsuarios values (14,8);
+  insert into PodcastsUsuarios values (29,2);
+  insert into PodcastsUsuarios values (37,9);
+
+  RAISE NOTICE 'Se han agregado los Podcasts de los usuarios correctamente';
+
+  insert into TemasDelDia values (1,'Tecnología');
+  insert into TemasDelDia values (2,'Salud');
+  insert into TemasDelDia values (3,'Entretenimiento');
+  insert into TemasDelDia values (4,'Ciencia');
+  insert into TemasDelDia values (5,'Deportes');
+
+  RAISE NOTICE 'Se han agregado los temas del dia correctamente';
+
+  insert into Noticias values (1,3);
+  insert into Noticias values (2,2);
+  insert into Noticias values (3,4);
+  insert into Noticias values (4,1);
+  insert into Noticias values (5,5);
+  insert into Noticias values (6,3);
+  insert into Noticias values (7,1);
+  insert into Noticias values (8,2);
+  insert into Noticias values (9,4);
+  insert into Noticias values (10,5);
+
+  RAISE NOTICE 'Se han agregado las noticias correctamente';
+
+  PERFORM CREAR_COMENTARIO_BLOG ('Gran artículo, muy informativo','2023-05-01',12,95);
+  PERFORM CREAR_COMENTARIO_BLOG ('¡Me encanta este contenido!','2023-05-02',8,94);
+  PERFORM CREAR_COMENTARIO_BLOG ('Muy buenos puntos de vista','2023-05-03',23,92);
+  PERFORM CREAR_COMENTARIO_BLOG ('Interesante perspectiva','2023-05-04',5,98);
+  PERFORM CREAR_COMENTARIO_BLOG ('Excelente trabajo','2023-05-05',41,101);
+  PERFORM CREAR_COMENTARIO_BLOG ('Gracias por compartir','2023-05-06',32,105);
+  PERFORM CREAR_COMENTARIO_BLOG ('Me gustaría leer más sobre esto','2023-05-07',17,103);
+  PERFORM CREAR_COMENTARIO_BLOG ('Buen análisis','2023-05-08',14,106);
+  PERFORM CREAR_COMENTARIO_BLOG ('Fascinante contenido','2023-05-09',29,96);
+  PERFORM CREAR_COMENTARIO_BLOG ('Interesante discusión','2023-05-10',37,100);
+
+  RAISE NOTICE 'Se han creado los comentarios de los blogs correctamente';
+
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Excelente artículo, muy informativo.','2023-05-01',12);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Interesante perspectiva sobre el tema.','2023-05-03',8);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('El contenido es muy relevante y actualizado.','2023-05-05',20);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Me gustaría ver más ejemplos prácticos.','2023-05-08',5);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Gracias por compartir este conocimiento.','2023-05-10',16);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('El artículo me ayudó a resolver mi problema.','2023-05-12',29);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Me pareció muy completo y bien estructurado.','2023-05-15',18);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Sería interesante profundizar en este tema.','2023-05-18',31);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('El autor explica de manera clara y concisa.','2023-05-20',6);
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Me gustaría más ejemplos de casos de uso.','2023-05-23',42);
+
+  RAISE NOTICE 'Se han creado los comentarios de los articulos correctamente';
+
+  insert into ComentariosPrincipales values (11);
+  insert into ComentariosPrincipales values (13);
+  insert into ComentariosPrincipales values (16);
+  insert into ComentariosPrincipales values (12);
+  insert into ComentariosPrincipales values (17);
+
+  RAISE NOTICE 'Se han agregado los cometarios principales correctamente';
+
+  insert into ComentariosSecundarios values (14,11);
+  insert into ComentariosSecundarios values (15,11);
+  insert into ComentariosSecundarios values (18,17);
+  insert into ComentariosSecundarios values (19,12);
+  insert into ComentariosSecundarios values (20,12);
+
+
+  RAISE NOTICE 'Se han agregado los comentarios secundarios correctamente';
+
+  insert into Votos values (1,3,11,'0');
+  insert into Votos values (2,8,11,'0');
+  insert into Votos values (3,13,11,'1');
+  insert into Votos values (4,40,12,'1');
+  insert into Votos values (5,33,13,'1');
+  insert into Votos values (6,21,16,'1');
+  insert into Votos values (7,32,16,'1');
+
+  RAISE NOTICE 'Se han agregado los votos correctamente';
+
+  insert into Juegos values (1,'logo1.png','El Desafío del Laberinto','Un emocionante juego de aventuras donde debes superar obstáculos y encontrar la salida del laberinto.');
+  insert into Juegos values (2,'logo2.png','Leyendas Místicas','Sumérgete en un mundo de magia y misterio mientras desentrañas antiguas leyendas y enfrentas criaturas legendarias.');
+  insert into Juegos values (3,'logo3.png','Carreras Extremas','Acelera a toda velocidad en carreras llenas de adrenalina, desafiando a otros corredores en peligrosos circuitos.');
+  insert into Juegos values (4,'logo4.png','El Reino Perdido','Explora tierras desconocidas, resuelve acertijos y descubre los secretos de un antiguo reino perdido.');
+  insert into Juegos values (5,'logo5.png','Batalla Galáctica','Enfréntate a épicas batallas espaciales, piloteando naves espaciales y combatiendo en planetas distantes.');
+  insert into Juegos values (6,'logo6.png','Escape de la Mansión','Encuentra pistas, resuelve enigmas y escapa de una misteriosa mansión llena de suspenso y terror.');
+  insert into Juegos values (7,'logo7.png','Rompecabezas Mágico','Desafía tu mente con fascinantes rompecabezas y desbloquea poderes mágicos mientras avanzas en el juego.');
+  insert into Juegos values (8,'logo8.png','Aventuras en la Jungla','Embárcate en una emocionante expedición por la selva, enfrentando peligros y descubriendo tesoros ocultos.');
+  insert into Juegos values (9,'logo9.png','Fútbol Mundial','Forma tu equipo y compite en apasionantes partidos de fútbol, luchando por convertirte en el campeón mundial.');
+  insert into Juegos values (10,'logo10.png','Cazadores de Tesoros','Únete a un grupo de intrépidos cazadores de tesoros en busca de riquezas ocultas en lugares exóticos alrededor del mundo.');
+
+  RAISE NOTICE 'Se han agregado los juegos correctamente';
+
+  insert into ActualizacionesJuegos values (1,'actualizacion1.com',3);
+  insert into ActualizacionesJuegos values (2,'actualizacion2.com',8);
+  insert into ActualizacionesJuegos values (3,'actualizacion3.com',5);
+  insert into ActualizacionesJuegos values (4,'actualizacion4.com',2);
+  insert into ActualizacionesJuegos values (5,'actualizacion5.com',6);
+  insert into ActualizacionesJuegos values (6,'actualizacion6.com',9);
+  insert into ActualizacionesJuegos values (7,'actualizacion7.com',1);
+  insert into ActualizacionesJuegos values (8,'actualizacion8.com',4);
+  insert into ActualizacionesJuegos values (9,'actualizacion9.com',10);
+  insert into ActualizacionesJuegos values (10,'actualizacion10.com',7);
+
+  RAISE NOTICE 'Se han agregado las actualizaciones de juegos correctamente';
+
+  insert into TiposDeCondolencias values (1,'Flores');
+  insert into TiposDeCondolencias values (2,'Tarjeta de condolencias');
+  insert into TiposDeCondolencias values (3,'Donación a una organización benéfica');
+
+  RAISE NOTICE 'Se han agregado los tipos de condolencias correctamente';
+
+  insert into Obituarios values(6,'Sara','Anderson','Recordando una Vida Bien Vivida','Rindiendo homenaje a un alma bondadosa que tocó muchas vidas.','2023-05-12','Chicago','Raquel Johnson, Marcos Thompson','Sara Anderson, de 78 años, dejó un legado perdurable...',2);
+  insert into Obituarios values(7,'Alejandro','Blanco','Despidiendo a un Amigo Querido','Celebrando una vida llena de risas y aventuras.','2023-05-17','Melbourne','Olivia Davis, Benjamín Parker','Alejandro Blanco será profundamente extrañado por todos...',1);
+  insert into Obituarios values(8,'Emma','Wilson','En Memoria de una Hermana','Recordando el vínculo que nunca será olvidado.','2023-05-22','Toronto','Sofía Smith, Ethan Brown','El espíritu de Emma Wilson vivirá en nuestros corazones...',3);
+  insert into Obituarios values(9,'Guillermo','Taylor','Una Vida Bien Vivida','Reflexionando sobre recuerdos queridos y momentos significativos.','2023-05-08','San Francisco','Liam Anderson, Mia Johnson','El legado de Guillermo Taylor inspirará a generaciones...',2);
+  insert into Obituarios values(10,'Olivia','Martín','Celebrando una Vida de Gracia','Rindiendo homenaje a una mujer de elegancia y compasión.','2023-05-27','Madrid','Noah Davis, Ava Thompson','La amabilidad de Olivia Martín será recordada para siempre...',1);
+  insert into Obituarios values(11,'Ethan','Clark','En Memoria','Recordando a un amigo y mentor dedicado.','2023-05-14','Berlín','Emma Wilson, Benjamín Johnson','La sabiduría de Ethan Clark se extrañará profundamente...',1);
+  insert into Obituarios values(12,'Mia','García','Recordando a una Madre Amorosa','Apreciando los momentos de amor incondicional.','2023-05-19','Roma','Guillermo Taylor, Olivia Brown','El amor de Mia García nos guiará para siempre...',2);
+  insert into Obituarios values(13,'Benjamín','Lee','Despidiendo a un Talento Notable','Celebrando el genio de un artista talentoso.','2023-05-24','Tokio','Emily Martín, Alejandro Davis','El arte de Benjamín Lee tocó las almas de muchos...',3);
+  insert into Obituarios values(14,'Sofía','Turner','En Memoria de una Abuela','Recordando un pilar de fuerza y sabiduría.','2023-05-09','Sídney','Miguel Wilson, Emma Smith','El amor de Sofía Turner vivirá para siempre...',1);
+  insert into Obituarios values(15,'Noé','Harris','Rindiendo Homenaje a una Vida de Dedicación','Reflexionando sobre una carrera dedicada a ayudar a los demás.','2023-05-16','Londres','David Brown, Sara Thompson','El impacto de Noé Harris se sentirá durante generaciones...',2);
+
+  RAISE NOTICE 'Se han agregado los obituarios correctamente';
 
 END $$ LANGUAGE plpgsql;

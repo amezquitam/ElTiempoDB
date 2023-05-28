@@ -54,7 +54,8 @@ BEGIN
         WHERE idContenido = CA.idComentario
     )
     INNER JOIN SubseccionesArticulos SA ON A.idArticulo = SA.idArticulo
-    WHERE SA.nombre = nombre_subseccion;
+    INNER JOIN Subsecciones S ON SA.idSubSeccion = S.idSubSeccion
+    WHERE S.nombre = nombre_subseccion;
 END;
 $$ LANGUAGE plpgsql;
 
