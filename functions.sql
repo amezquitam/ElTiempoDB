@@ -196,6 +196,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
 DROP FUNCTION IF EXISTS CREAR_CARICATURAS;
 
 CREATE OR REPLACE FUNCTION CREAR_CARICATURAS(
@@ -218,6 +219,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+DROP FUNCTION IF EXISTS CREAR_ACTUALIZACIONES_DE_BLOGS;
+
 CREATE OR REPLACE FUNCTION CREAR_ACTUALIZACIONES_DE_BLOGS(
   titulo VARCHAR,
   fechaPublicacion DATE,
@@ -239,6 +243,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+DROP FUNCTION IF EXISTS CREAR_GALERIA;
+
 CREATE OR REPLACE FUNCTION CREAR_GALERIA (
   titulo VARCHAR,
   fechaPublicacion DATE,
@@ -254,6 +261,49 @@ BEGIN
 
   INSERT INTO Galerias
   VALUES (id, autor, portada);
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS CREAR_COMENTARIO_ARTICULO;
+
+CREATE OR REPLACE FUNCTION CREAR_COMENTARIO_ARTICULO (
+  cuerpo VARCHAR,
+  fechaPublicacion DATE,
+  idUsuario INTEGER
+) RETURNS INTEGER AS $$
+DECLARE id INTEGER;
+BEGIN 
+  INSERT INTO Comentarios (cuerpo, fechaPublicacion, idUsuario)
+  VALUES (cuerpo, fechaPublicacion, idUsuario)
+  RETURNING idComentario INTO id;
+
+  INSERT INTO ComentariosArticulos
+  VALUES (id);
+
+  return id;
+END;
+$$ LANGUAGE plpgsql;
+
+
+DROP FUNCTION IF EXISTS CREAR_COMENTARIO_BLOG;
+
+CREATE OR REPLACE FUNCTION CREAR_COMENTARIO_BLOG(
+  cuerpo VARCHAR,
+  fechaPublicacion DATE,
+  idUsuario INTEGER,
+  idContenido INTEGER
+) RETURNS INTEGER AS $$
+DECLARE id INTEGER;
+BEGIN
+  INSERT INTO Comentarios (cuerpo, fechaPublicacion, idUsuario)
+  VALUES (cuerpo, fechaPublicacion, idUsuario)
+  RETURNING idComentario INTO id;
+
+  INSERT INTO ComentariosBlogs
+  VALUES (id, idContenido);
 
   return id;
 END;

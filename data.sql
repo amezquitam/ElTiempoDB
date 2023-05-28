@@ -471,4 +471,29 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado las historias correctamente';
 
+  PERFORM CREAR_COMENTARIO_ARTICULO ('Excelente artículo, muy informativo.','2023-05-01',12);
+
+  RAISE NOTICE 'Se han agregado los comentarios a los articulos correctamente';
+
+  INSERT INTO Podcasts(titulo, portada) VALUES('Aventuras en la selva', 'aventuras_selva.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('Misterio en la mansión', 'misterio_mansion.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El tesoro perdido', 'tesoro_perdido.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('Viaje al espacio', 'viaje_espacio.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El secreto del antiguo templo', 'secreto_templo.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El misterio del faro', 'misterio_faro.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('Cazadores de tesoros', 'cazadores_tesoros.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('La isla misteriosa', 'isla_misteriosa.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('La ciudad de los dragones', 'ciudad_dragones.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El enigma de la pirámide', 'enigma_piramide.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El castillo encantado', 'castillo_encantado.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El mapa secreto', 'mapa_secreto.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('La búsqueda del diamante', 'busqueda_diamante.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El enigma del abismo', 'enigma_abismo.jpg');
+  INSERT INTO Podcasts(titulo, portada) VALUES('El reino perdido', 'reino_perdido.jpg');
+
+  RAISE NOTICE 'Se han agregado los podcasts correctamente';
+
+  
+
+
 END $$ LANGUAGE plpgsql;
