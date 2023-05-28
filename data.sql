@@ -453,4 +453,22 @@ BEGIN
 
   RAISE NOTICE 'Se han agregado las galerias correctamente';
 
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(107, 'galeria15.jpg', 'Una colección de caricaturas sobre la vida en el campo.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(108, 'galeria1.jpg', 'Una colección de caricaturas políticas satíricas.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(109, 'galeria2.jpg', 'Caricaturas clásicas de personajes famosos.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(110, 'galeria3.jpg', 'Caricaturas divertidas que representan situaciones cotidianas.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(111, 'galeria4.jpg', 'Una selección de caricaturas sobre deportes y atletas.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(112, 'galeria5.jpg', 'Caricaturas políticas mordaces que critican la corrupción.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(113, 'galeria6.jpg', 'Una serie de caricaturas de famosos eventos históricos.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(114, 'galeria7.jpg', 'Caricaturas humorísticas de animales en situaciones graciosas.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(115, 'galeria8.jpg', 'Caricaturas sarcásticas sobre la tecnología moderna.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(116, 'galeria9.jpg', 'Una recopilación de caricaturas sobre temas medioambientales.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(117, 'galeria10.jpg', 'Caricaturas de personajes famosos en situaciones absurdas.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(118, 'galeria11.jpg', 'Caricaturas políticas que critican la desigualdad social.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(119, 'galeria12.jpg', 'Caricaturas sobre el mundo del cine y los cineastas famosos.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(120, 'galeria13.jpg', 'Una serie de caricaturas que representan la vida urbana.');
+  INSERT INTO Historias(idGaleria, imagen, cuerpo) VALUES(121, 'galeria14.jpg', 'Caricaturas humorísticas sobre la vida en la oficina.');
+
+  RAISE NOTICE 'Se han agregado las historias correctamente';
+
 END $$ LANGUAGE plpgsql;
